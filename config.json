@@ -26,7 +26,7 @@
         "EnableTesting": false,
         "EnableDeveloper": false,
         "EnableSecurityFixAlert": true,
-        "EnableInsecureOutgoingConnections": false,
+        "EnableInsecureOutgoingConnections": true,
         "AllowedUntrustedInternalConnections": "",
         "EnableMultifactorAuthentication": false,
         "EnforceMultifactorAuthentication": false,
@@ -38,7 +38,7 @@
         "SessionCacheInMinutes": 10,
         "SessionIdleTimeoutInMinutes": 0,
         "WebsocketSecurePort": 443,
-        "WebsocketPort": 8080,
+        "WebsocketPort": 80,
         "WebserverMode": "gzip",
         "EnableCustomEmoji": false,
         "EnableEmojiPicker": true,
@@ -110,7 +110,7 @@
         "QueryTimeout": 30
     },
     "LogSettings": {
-        "EnableConsole": false,
+        "EnableConsole": true,
         "ConsoleLevel": "INFO",
         "EnableFile": true,
         "FileLevel": "INFO",
@@ -210,7 +210,7 @@
         "AllowedThemes": []
     },
     "GitLabSettings": {
-        "Enable": false,
+        "Enable": true,
         "Secret": "",
         "Id": "",
         "Scope": "",
