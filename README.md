@@ -14,7 +14,7 @@ oc new-app \
 + Create a config map from the template provided by substituting the variables below with your own
 ```
 oc process -f mattermost-config.yml \
-        -p SITE_URL=mattermost.somesite.com \
+        -p SITE_URL=http://mattermost.somesite.com \
         -p SMTP_PASSWORD=password \
         -p SMTP_USERNAME=noreply.mattermosts@gmail.com \
         -p GITLAB_OATUH_SECRET=123 \
