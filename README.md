@@ -1,14 +1,32 @@
 # mattermost-ocp
+Repository containing some slight customisations to the `team` edition of [Mattermost](https://docs.mattermost.com/) for running on OpenShift.
 
-WIP  repo
+# Run instructions
++ Create a db for the application using the template provided or one built into OpenShift.
+```
+oc new-app \                                                                                           
+    -e POSTGRESQL_USER=mattermost \
+    -e POSTGRESQL_PASSWORD=password \
+    -e POSTGRESQL_DATABASE=mattermost \
+    postgresql:9.4
+```
 
-## Set the following VARS when running the image eg
-```bash
-MM_USERNAME=db_username
-MM_PASSWORD=db_pass
-MM_DBNAME=mattermost
-DB_HOST=db.namespace.svc.cluster.local
-DB_PORT_NUMBER=5432
++ Create a config map from the template provided by completing the variables below
+```
+oc process -f mattermost-config.yml \
+        -p SITE_URL= \
+        -p SMTP_PASSWORD= \
+        -p GITLAB_OATUH_SECRET= \
+        -p GITLAB_OAUTH_ID= \
+        -p GITLAB_URL= \
+        -p POSTGRESQL_PASSWORD= \
+        -p POSTGRESQL_SERVICE= \
+         | oc create -f -
+```
+
++ Create a deployment for the mattermost app
+```
+
 ```
 
 ## TODO

@@ -100,7 +100,7 @@
     },
     "SqlSettings": {
         "DriverName": "postgres",
-        "DataSource": "postgres://donal:password@postgresql.jack-test.svc.cluster.local:5432/mattermost?sslmode=disable\u0026connect_timeout=10",
+        "DataSource": "postgres://username:password@someplace.com:5432/mattermost?sslmode=disable\u0026connect_timeout=10",
         "DataSourceReplicas": [],
         "DataSourceSearchReplicas": [],
         "MaxIdleConns": 20,

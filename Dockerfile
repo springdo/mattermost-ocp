@@ -7,8 +7,6 @@ ARG edition=team
 RUN chgrp -R 0 /mattermost \
   && chmod -R g+rwX /mattermost
 
-USER default
-
 COPY config.json /mattermost/config/config.json
 # Using the MM_CONFIG created TODO use config map
 # CMD /entrypoint.sh platform -c ${MM_CONFIG}
