@@ -7,7 +7,8 @@ ARG edition=team
 RUN chgrp -R 0 /mattermost \
   && chmod -R g+rwX /mattermost
 
+# Used for local testing if you want to move in some test config.
+# OCP template adds config map to this location anyway 
 COPY config.json /mattermost/config/config.json
-# Using the MM_CONFIG created TODO use config map
-# CMD /entrypoint.sh platform -c ${MM_CONFIG}
+
 CMD platform -c /mattermost/config/config.json
