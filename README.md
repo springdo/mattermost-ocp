@@ -21,7 +21,7 @@ oc process -f mattermost-config.yml \
         -p GITLAB_OAUTH_ID=123 \
         -p GITLAB_URL=gitlab.somesite.com \
         -p POSTGRESQL_PASSWORD=password \
-        -p POSTGRESQL_SERVICE=postgresql.namespace.cluster.local \
+        -p POSTGRESQL_SERVICE=postgresql.namespace.svc.cluster.local \
          | oc create -f -
 ```
 
