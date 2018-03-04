@@ -33,14 +33,10 @@ objects:
       name: "${NAME}"
     strategy:
       activeDeadlineSeconds: 21600
-      resources: {}
-      rollingParams:
-        intervalSeconds: 1
-        maxSurge: 25%
-        maxUnavailable: 25%
+      recreateParams:
         timeoutSeconds: 600
-        updatePeriodSeconds: 1
-      type: Rolling
+      resources: {}
+      type: Recreate
     template:
       metadata:
         creationTimestamp:
@@ -58,6 +54,8 @@ objects:
           volumeMounts:
           - mountPath: "/mattermost/data"
             name: "${NAME}"
+          - mountPath: "/mattermost/config"
+            name: "${NAME}-config"
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext:
@@ -65,6 +63,13 @@ objects:
           privileged: false
         terminationGracePeriodSeconds: 30
         volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+              - key: ${NAME}-properties
+                path: config.json
+            name: ${NAME}-properties
+          name: ${NAME}-config
         - persistentVolumeClaim:
             claimName: "${NAME}"
           name: "${NAME}"
