@@ -11,7 +11,7 @@ oc new-app \
     postgresql:9.4
 ```
 
-+ Create a config map from the template provided by substituting the variables below with your own
++ Create a config map from the template provided by substituting the variables below with your own. Instructions for getting GitLab setup can be found here [mattermost-gitlab](https://docs.mattermost.com/deployment/sso-gitlab.html). 
 ```
 oc process -f mattermost-config.yml \
         -p SITE_URL=http://mattermost.somesite.com \
